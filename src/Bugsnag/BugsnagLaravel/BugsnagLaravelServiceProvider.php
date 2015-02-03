@@ -11,31 +11,31 @@ class BugsnagLaravelServiceProvider extends ServiceProvider
      */
     protected $defer = false;
 
-    /**
-     * Bootstrap the application events.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //$this->package('bugsnag/bugsnag-laravel', 'bugsnag');
+    /* /** */
+    /*  * Bootstrap the application events. */
+    /*  * */
+    /*  * @return void */
+    /*  *1/ */
+    /* public function boot() */
+    /* { */
+    /*     //$this->package('bugsnag/bugsnag-laravel', 'bugsnag'); */
 
-        $app = $this->app;
+    /*     $app = $this->app; */
 
-        // Register for exception handling
-        $app->error(function (\Exception $exception) use ($app) {
-            if ('Symfony\Component\Debug\Exception\FatalErrorException'
-                !== get_class($exception)
-            ) {
-                $app['bugsnag']->notifyException($exception);
-            }
-        });
+    /*     // Register for exception handling */
+    /*     /1* $app->error(function (\Exception $exception) use ($app) { *1/ */
+    /*     /1*     if ('Symfony\Component\Debug\Exception\FatalErrorException' *1/ */
+    /*     /1*         !== get_class($exception) *1/ */
+    /*     /1*     ) { *1/ */
+    /*     /1*         $app['bugsnag']->notifyException($exception); *1/ */
+    /*     /1*     } *1/ */
+    /*     /1* }); *1/ */
 
-        // Register for fatal error handling
-        $app->fatal(function ($exception) use ($app) {
-            $app['bugsnag']->notifyException($exception);
-        });
-    }
+    /*     /1* // Register for fatal error handling *1/ */
+    /*     /1* $app->fatal(function ($exception) use ($app) { *1/ */
+    /*     /1*     $app['bugsnag']->notifyException($exception); *1/ */
+    /*     /1* }); *1/ */
+    /* } */
 
     /**
      * Register the service provider.
@@ -76,13 +76,13 @@ class BugsnagLaravelServiceProvider extends ServiceProvider
             }
 
             // Check if someone is logged in.
-            if ($app['auth']->check()) {
-                // User is logged in.
-                $user = $app['auth']->user();
+            /* if ($app['auth']->check()) { */
+            /*     // User is logged in. */
+            /*     $user = $app['auth']->user(); */
 
-                // If these attributes are available: pass them on.
-                $client->setUser(array('id' => $user->getAuthIdentifier()));
-            }
+            /*     // If these attributes are available: pass them on. */
+            /*     $client->setUser(array('id' => $user->getAuthIdentifier())); */
+            /* } */
 
             return $client;
         });
