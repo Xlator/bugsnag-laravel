@@ -18,7 +18,7 @@ class BugsnagLaravelServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('bugsnag/bugsnag-laravel', 'bugsnag');
+        //$this->package('bugsnag/bugsnag-laravel', 'bugsnag');
 
         $app = $this->app;
 
